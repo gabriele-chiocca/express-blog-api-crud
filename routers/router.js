@@ -11,9 +11,7 @@ router.get('/', postController.index);
 router.get('/:id', postController.show);
 
 //Create
-router.post('/', function (req, res) {
-  res.send('Creazione nuovo post');
-});
+router.post('/', postController.create);
 
 //Update
 router.put('/:id', function (req, res) {

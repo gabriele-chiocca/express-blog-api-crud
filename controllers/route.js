@@ -22,4 +22,8 @@ function show(req, res) {
   });
 }
 
-module.exports = { index, show };
+function create(req, res) {
+  res.send('Creazione nuovo post');
+}
+
+module.exports = { index, show, create };
