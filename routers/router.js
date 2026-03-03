@@ -8,21 +8,7 @@ const postController = require('../controllers/route');
 router.get('/', postController.index);
 
 //Show
-router.get('/:id', function (req, res) {
-  const id = Number(req.params.id);
-  const post = posts.find((post) => post.id === id);
-
-  if (!post) {
-    return res.status(404).json({
-      error: 'Post non trovato',
-    });
-  }
-
-  res.status(200).json({
-    message: 'Dettaglio post singolo',
-    detailPost: post,
-  });
-});
+router.get('/:id', postController.show);
 
 //Create
 router.post('/', function (req, res) {
