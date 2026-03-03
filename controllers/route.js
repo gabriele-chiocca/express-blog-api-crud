@@ -1,9 +1,25 @@
 let postsData = require('../data/post');
 
 function index(req, res) {
-  postsData;
+  let posts = [...postsData];
 
-  res.status(200).json(postsData);
+  const searchFilter = req.query.search;
+
+  if (searchFilter) {
+    posts = posts.filter((post) => {
+      const normalizedName = post.title.toLowerCase().trim();
+
+      const normalizedFilter = searchFilter.toLowerCase().trim();
+
+      return (
+        normalizedName.includes(normalizedFilter) ||
+        post.tags.some((tag) =>
+          tag.toLowerCase().trim().includes(normalizedFilter),
+        )
+      );
+    });
+  }
+  return res.status(200).json(posts);
 }
 
 function show(req, res) {
