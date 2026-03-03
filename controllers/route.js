@@ -26,4 +26,8 @@ function create(req, res) {
   res.send('Creazione nuovo post');
 }
 
-module.exports = { index, show, create };
+function update(req, res) {
+  res.send('Modifica parziale del post ' + req.params.id);
+}
+
+module.exports = { index, show, create, update };

@@ -14,9 +14,7 @@ router.get('/:id', postController.show);
 router.post('/', postController.create);
 
 //Update
-router.put('/:id', function (req, res) {
-  res.send('Modifica parziale del post' + req.params.id);
-});
+router.put('/:id', postController.update);
 
 //Delete
 
