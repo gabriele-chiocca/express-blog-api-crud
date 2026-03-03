@@ -30,4 +30,24 @@ function update(req, res) {
   res.send('Modifica parziale del post ' + req.params.id);
 }
 
-module.exports = { index, show, create, update };
+function deleted(req, res) {
+  const id = Number(req.params.id);
+
+  const post = postsData.find((post) => post.id === id);
+
+  if (!post) {
+    return res.status(404).json({
+      error: 'Post non trovato',
+    });
+  }
+
+  const Index = postsData.indexOf(post);
+  postsData.splice(Index, 1);
+
+  res.json({
+    message: 'Post eliminato',
+    deletedPost: post,
+  });
+}
+
+module.exports = { index, show, create, update, deleted };
