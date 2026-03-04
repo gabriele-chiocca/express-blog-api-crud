@@ -10,8 +10,8 @@ router.get('/', postController.index);
 //Show
 router.get('/:id', postController.show);
 
-//Create
-router.post('/', postController.create);
+//Store
+router.post('/', postController.store);
 
 //Update
 router.put('/:id', postController.update);

@@ -38,7 +38,8 @@ function show(req, res) {
   });
 }
 
-function create(req, res) {
+function store(req, res) {
+  console.log(req.body);
   res.send('Creazione nuovo post');
 }
 
@@ -66,4 +67,4 @@ function deleted(req, res) {
   });
 }
 
-module.exports = { index, show, create, update, deleted };
+module.exports = { index, show, store, update, deleted };
