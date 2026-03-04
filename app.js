@@ -7,6 +7,11 @@ const postsRouter = require('./routers/router');
 
 app.use(express.static('public'));
 
+app.use(express.json());
+app.post('/', (req, res) => {
+  console.log(req.body);
+});
+
 app.get('/', (req, res) => {
   const responseData = {
     message: 'Server del mio blog',
