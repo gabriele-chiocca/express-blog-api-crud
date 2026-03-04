@@ -58,7 +58,24 @@ function store(req, res) {
 }
 
 function update(req, res) {
-  res.send('Modifica parziale del post ' + req.params.id);
+  const id = Number(req.params.id);
+
+  const post = postsData.find((post) => post.id === id);
+
+  if (!post) {
+    return res.status(404).json({
+      error: 'Post non trovato',
+    });
+  }
+
+  post.title = req.body.title;
+  post.content = req.body.content;
+  post.image = req.body.image;
+  post.tags = req.body.tags;
+
+  console.log(postsData);
+
+  res.json(post);
 }
 
 function deleted(req, res) {
