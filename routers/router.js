@@ -14,7 +14,7 @@ router.get('/:id', postController.show);
 router.post('/', postController.store);
 
 //Update
-router.put('/:id', postController.update);
+router.patch('/:id', postController.update);
 
 //Delete
 
