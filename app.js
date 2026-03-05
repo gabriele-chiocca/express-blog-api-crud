@@ -27,10 +27,10 @@ app.get('/', (req, res) => {
 
 app.use('/posts', postsRouter);
 
-app.use(errorsHandler);
-
 app.use(notFound);
 
 app.listen(port, () => {
   console.log(`Il server è inizializzato all'indirizzo ${appUrl}`);
 });
+
+app.use(errorsHandler);

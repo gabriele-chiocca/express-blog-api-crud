@@ -26,6 +26,11 @@ function show(req, res) {
   const id = Number(req.params.id);
   const post = postsData.find((post) => post.id === id);
 
+  //Error Test
+  if (post.id === 999) {
+    return next(new Error('Errore generato manualmente'));
+  }
+
   if (!post) {
     return res.status(404).json({
       error: 'Post non trovato',
