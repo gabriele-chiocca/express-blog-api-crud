@@ -5,9 +5,9 @@ const appUrl = `http://localhost:${port}/`;
 
 const postsRouter = require('./routers/router');
 
-const routeManagement = require('./middlewares/errorsHandler');
+const errorsHandler = require('./middlewares/errorsHandler');
 
-app.use(routeManagement);
+app.use(errorsHandler);
 
 app.use(express.static('public'));
 
