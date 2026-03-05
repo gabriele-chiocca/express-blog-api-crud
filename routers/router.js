@@ -4,6 +4,10 @@ const router = express.Router();
 let posts = require('../data/post');
 const postController = require('../controllers/postController');
 
+const routeManagement = require('../middlewares/errorsHandler');
+
+router.use(routeManagement);
+
 //Index
 router.get('/', postController.index);
 
