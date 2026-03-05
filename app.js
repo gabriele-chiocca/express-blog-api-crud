@@ -7,7 +7,7 @@ const postsRouter = require('./routers/router');
 
 const errorsHandler = require('./middlewares/errorsHandler');
 
-app.use(errorsHandler);
+const notFound = require('./middlewares/notFound');
 
 app.use(express.static('public'));
 
@@ -26,6 +26,10 @@ app.get('/', (req, res) => {
 });
 
 app.use('/posts', postsRouter);
+
+app.use(errorsHandler);
+
+app.use(notFound);
 
 app.listen(port, () => {
   console.log(`Il server è inizializzato all'indirizzo ${appUrl}`);
